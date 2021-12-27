@@ -28,6 +28,40 @@
     },
     {
       "categories": [
+        "Photos"
+      ],
+      "description": "Piwigo is photo gallery software for the web, built by an active community of users and developers.",
+      "env": [
+        {
+          "default": "1000",
+          "label": "PUID",
+          "name": "PUID"
+        },
+        {
+          "default": "100",
+          "label": "PGID",
+          "name": "PGID"
+        }
+      ],
+      "image": "linuxserver/piwigo:latest",
+      "logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/piwigo-icon.png",
+      "name": "piwigo",
+      "platform": "linux",
+      "ports": [
+        "80/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "Piwigo",
+      "type": 1,
+      "volumes": [
+        {
+          "bind": "/portainer/Files/AppData/Config/PiWigo",
+          "container": "/config"
+        }
+      ]
+    },
+    {
+      "categories": [
         "HomeAutomation",
         "Management"
       ],
@@ -128,6 +162,68 @@
         },
         {
           "container":"/usr/share/nginx/html"
+        }
+      ]
+    },
+    {
+      "categories": [
+        "Other",
+        "VPN",
+        "Tools"
+      ],
+      "description": "This container contains OpenVPN and Transmission with a configuration\nwhere Transmission is running only when OpenVPN has an active tunnel.\nIt bundles configuration files for many popular VPN providers to make the setup easier.",
+      "env": [
+        {
+          "default": "1000",
+          "label": "PUID",
+          "name": "PUID"
+        },
+        {
+          "default": "100",
+          "label": "PGID",
+          "name": "PGID"
+        },
+        {
+          "default": "MULLVAD",
+          "description": "https://haugene.github.io/docker-transmission-openvpn/supported-providers/",
+          "label": "OPENVPN_PROVIDER",
+          "name": "OPENVPN_PROVIDER"
+        },
+        {
+          "default": "",
+          "label": "OPENVPN_USERNAME",
+          "name": "OPENVPN_USERNAME"
+        },
+        {
+          "default": "",
+          "label": "OPENVPN_PASSWORD",
+          "name": "OPENVPN_PASSWORD"
+        },
+        {
+          "default": "192.168.0.0/24",
+          "label": "LOCAL_NETWORK",
+          "name": "LOCAL_NETWORK"
+        }
+      ],
+      "image": "haugene/transmission-openvpn:latest",
+      "logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/transmission-icon.png",
+      "name": "transmission-openvpn",
+      "note": "List of supported providers available \u003ca href='https://haugene.github.io/docker-transmission-openvpn/supported-providers'/\u003ehere\u003c/a\u003e.",
+      "platform": "linux",
+      "ports": [
+        "9091:9091/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "Transmission-OpenVPN",
+      "type": 1,
+      "volumes": [
+        {
+          "bind": "/portainer/Downloads",
+          "container": "/data"
+        },
+        {
+          "bind": "/etc/localtime",
+          "container": "/etc/localtime"
         }
       ]
     },
