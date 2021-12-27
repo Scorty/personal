@@ -1,0 +1,4 @@
+https://raw.githubusercontent.com/Scorty/personal/main/portainer/templates.json
+
+
+https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/portainer-2.0/Template/template.json
