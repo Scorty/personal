@@ -159,7 +159,7 @@
       "name": "duckdns",
       "platform": "linux",
       "restart_policy": "unless-stopped",
-      "title": "Duck DNS",
+      "title": "Duck DNSx",
       "type": 1
     },
     {
