@@ -729,6 +729,12 @@
         {
           "container":"/data"
         }
+      ],
+      "env": [
+        {
+          "name": "REDIS_PASSWD",
+          "label": "Redis password"
+        }
       ]
     },
     {
